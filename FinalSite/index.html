@@ -1,0 +1,2126 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>দারুল হিকমাহ মডেল মাদ্রাসা, ফুলপুর, ময়মনসিংহ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'SolaimanLipi', 'Siyam Rupali', Arial, sans-serif;
+        }
+        
+        :root {
+            --primary: #2c5f2d;
+            --secondary: #ffc107;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --accent: #8d6e63;
+            --bg-color: #f5f5f5;
+            --text-color: #333;
+            --card-bg: #ffffff;
+            --footer-bg: #343a40;
+            --footer-text: #ffffff;
+            --nav-bg: #343a40;
+            --header-bg: linear-gradient(to right, #2c5f2d, #4caf50);
+            --shadow: 0 5px 15px rgba(0,0,0,0.05);
+            --shadow-hover: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .dark-mode {
+            --primary: #d4af37;
+            --secondary: #ffc107;
+            --light: #2d3748;
+            --dark: #f8f9fa;
+            --accent: #a1887f;
+            --bg-color: #1a202c;
+            --text-color: #e2e8f0;
+            --card-bg: #2d3748;
+            --footer-bg: #1a202c;
+            --footer-text: #e2e8f0;
+            --nav-bg: #2d3748;
+            --header-bg: linear-gradient(to right, #1a202c, #2d3748);
+            --shadow: 0 5px 15px rgba(0,0,0,0.2);
+            --shadow-hover: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+            padding-top: 70px; /* For fixed header */
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--header-bg);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.shrink {
+            padding: 5px 0;
+        }
+        
+        header.shrink .header-top {
+            align-items: center;
+        }
+        
+        header.shrink .logo img {
+            height: 40px;
+            width: 40px;
+        }
+        
+        header.shrink .logo-text h1 {
+            font-size: 1.2rem;
+            margin-bottom: 0;
+        }
+        
+        header.shrink .logo-text p {
+            display: none;
+        }
+        
+        header.shrink .contact-info p {
+            font-size: 0.8rem;
+            margin: 2px 0;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            transition: all 0.3s ease;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            height: 70px;
+            width: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info {
+            text-align: right;
+        }
+        
+        .contact-info p {
+            margin: 5px 0;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info i {
+            margin-right: 5px;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--nav-bg);
+            padding: 10px 0;
+            position: relative;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 10px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: background 0.3s;
+            font-weight: 500;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            background-color: var(--secondary);
+            color: var(--dark);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Dark Mode Toggle */
+        .dark-mode-toggle {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .dark-mode-toggle:hover {
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        /* Page Content */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://scontent.fdac202-1.fna.fbcdn.net/v/t39.30808-6/584865888_122138795582952609_4367065161382081720_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFOwNVNt88TOfmVulPwPjfTKjHfn1ZpzoQqMd-fVmnOhNLVgVSKUDzPBT1iOOdI2JqG5s-MQkF21aSykltVRhhO&_nc_ohc=CpYXM4EhIPIQ7kNvwEDGrmR&_nc_oc=Admq1F8upCzUBFFrHfMNVDy9DCBoVrwZ6Se8NL-UbafONv9Zbp7qeAeeIA0VUdrTyB0&_nc_zt=23&_nc_ht=scontent.fdac202-1.fna&_nc_gid=iGLoyZf0-qD3_-a8Bl5DEg&oh=00_AfipcY1mSvcyo-f1rAItCBxyy4gNVO5zzD-Y-6jA_Pkpzw&oe=69225350');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--dark);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #e0a800;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .btn-large {
+            padding: 15px 40px;
+            font-size: 1.3rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Top Banner */
+        .top-banner {
+            background-color: #d32f2f;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 1.3rem;
+            animation: pulse 2s infinite;
+            margin-top: 70px; /* For fixed header */
+        }
+        
+        @keyframes pulse {
+            0% { background-color: #d32f2f; }
+            50% { background-color: #f44336; }
+            100% { background-color: #d32f2f; }
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        /* Departments Section */
+        .departments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .department-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        
+        .department-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .department-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .department-card h3 {
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+        
+        /* Department Details Modal */
+        .department-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1100;
+            overflow-y: auto;
+        }
+        
+        .department-modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: var(--card-bg);
+            margin: 20px;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        
+        /* Admission Section */
+        .admission-info {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .info-card {
+            background-color: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .info-card h4 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        /* Fee Section */
+        .fee-tables {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .fee-table {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .fee-table h3 {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin: 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: var(--light);
+            font-weight: 600;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* Food Menu */
+        .food-menu {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .food-menu table {
+            width: 100%;
+        }
+        
+        .food-menu th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Facilities Section */
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .facility-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .facility-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 200px;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-details {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: 1px solid var(--light);
+        }
+        
+        .contact-details .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .contact-details .info-icon {
+            background-color: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .map {
+            margin-top: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 50px 0 20px;
+            position: relative;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        .prayer-times {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+            align-items: center;
+        }
+        
+        .prayer-time {
+            background-color: rgba(255,255,255,0.1);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .mosque-icon {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-right: 10px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Floating Buttons */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .floating-btn.call {
+            background-color: #25d366;
+            animation: pulse-green 2s infinite;
+        }
+        
+        .floating-btn.whatsapp {
+            background-color: #25d366;
+        }
+        
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 110px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            background: var(--primary);
+            color: white;
+            border-radius: 5px;
+            box-shadow: var(--shadow);
+            z-index: 1001;
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+        }
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        /* Loading Spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Form Validation */
+        .form-control.error {
+            border-color: #dc3545;
+        }
+        
+        .error-message {
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .error-message.show {
+            display: block;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 60px;
+            }
+            
+            .top-banner {
+                margin-top: 60px;
+            }
+            
+            .header-top {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .contact-info {
+                text-align: center;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                right: 15px;
+                top: 10px;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: var(--nav-bg);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                z-index: 1000;
+                padding: 10px 0;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 10px 15px;
+            }
+            
+            .dark-mode-toggle {
+                position: relative;
+                right: auto;
+                top: auto;
+                transform: none;
+                margin-top: 10px;
+            }
+            
+            .hero {
+                padding: 60px 0;
+                min-height: 50vh;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .floating-buttons {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .scroll-top {
+                bottom: 100px;
+                right: 20px;
+            }
+            
+            header.shrink {
+                padding: 3px 0;
+            }
+            
+            header.shrink .logo img {
+                height: 30px;
+                width: 30px;
+            }
+            
+            header.shrink .logo-text h1 {
+                font-size: 1rem;
+            }
+            
+            header.shrink .contact-info p {
+                font-size: 0.7rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero {
+                padding: 40px 0;
+                min-height: 40vh;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 1rem;
+                display: block;
+                margin: 10px auto;
+                width: 80%;
+            }
+            
+            .btn-large {
+                padding: 12px 25px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <span id="notificationText">বার্তা পাঠানো হয়েছে!</span>
+    </div>
+
+    <!-- Department Details Modal -->
+    <div class="department-modal" id="departmentModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <div id="modalContent">
+                <!-- Modal content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Banner -->
+    <div class="top-banner">
+        ভর্তি চলছে ২০২৫ শিক্ষাবর্ষের জন্য | ভর্তি ফরম সংগ্রহ করুন এখনই!
+    </div>
+    
+    <!-- Header -->
+    <header id="mainHeader">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <img src="https://scontent.fdac202-1.fna.fbcdn.net/v/t39.30808-1/465864294_3887613201505139_5546741385621062236_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=104&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeG-_FubSCZjlZd2N90itQXc9BsHlc6WOBr0GweVzpY4GhOY0cQweW0Cg-otzLN6RroF14XH2856JL2lUP1clUEG&_nc_ohc=2ikKefmicAcQ7kNvwEF4XkB&_nc_oc=AdnV_KcRwBJvv-PPEtkxP9-MWHcdwbuQkO77txODRSwCI0Do-6qvtFx0GF2cTLfCWME&_nc_zt=24&_nc_ht=scontent.fdac202-1.fna&_nc_gid=KND5FPoL2k106EtZdFQ8Ww&oh=00_Afh2Pj153MisYar7WxJ86DOYuEkKbgq6nh7zwQW4x_mv7Q&oe=69222D2A" alt="দারুল হিকমাহ মাদ্রাসা লোগো">
+                    <div class="logo-text">
+                        <h1>দারুল হিকমাহ মডেল মাদ্রাসা</h1>
+                        <p>ইসলামী ব্যাংকের বিপরীত পার্শ্বে, হালুয়াঘাট রোড, ফুলপুর, ময়মনসিংহ</p>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone"></i> ০১৯৭০-৫১৭৫৬৬, ০১৭২৫-৭৬৬০৯২</p>
+                    <p><i class="fas fa-envelope"></i> darulhikmahphulpur2025@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> অফিস খোলা: রাত ৯টা পর্যন্ত</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul id="navMenu">
+                <li><a href="#" class="nav-link active" data-page="home">হোম</a></li>
+                <li><a href="#" class="nav-link" data-page="about">আমাদের সম্পর্কে</a></li>
+                <li><a href="#" class="nav-link" data-page="departments">বিভাগসমূহ</a></li>
+                <li><a href="#" class="nav-link" data-page="admission">ভর্তি তথ্য</a></li>
+                <li><a href="#" class="nav-link" data-page="fee">ফি সংক্রান্ত</a></li>
+                <li><a href="#" class="nav-link" data-page="facilities">সুবিধাসমূহ</a></li>
+                <li><a href="#" class="nav-link" data-page="gallery">গ্যালারি</a></li>
+                <li><a href="#" class="nav-link" data-page="contact">যোগাযোগ</a></li>
+            </ul>
+            <button class="dark-mode-toggle" id="darkModeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>দারুল হিকমাহ মডেল মাদ্রাসা</h2>
+                    <p>আধুনিক শিক্ষা ও ইসলামী মূল্যবোধের সমন্বয়ে গড়ে উঠেছে একটি আদর্শ শিক্ষাপ্রতিষ্ঠান</p>
+                    
+                    <div class="hero-buttons">
+                        <a href="https://unique-paprenjak-96dc61.netlify.app/" class="btn btn-large">অনলাইনে ভর্তি ফর্ম পূরণ করুন</a>
+                        <a href="#" class="nav-link btn btn-primary" data-page="admission">ভর্তি তথ্য জানুন</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Preview Section -->
+        <section class="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>আমাদের সম্পর্কে</h2>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>দারুল হিকমাহ মডেল মাদ্রাসা ফুলপুর, ময়মনসিংহে অবস্থিত একটি আদর্শ শিক্ষাপ্রতিষ্ঠান। আমরা আধুনিক শিক্ষার সাথে ইসলামী মূল্যবোধের সমন্বয়ে শিক্ষার্থীদের সুশিক্ষিত করে গড়ে তুলতে প্রতিশ্রুতিবদ্ধ।</p>
+                        <p>আমাদের মাদ্রাসায় প্লে থেকে ৬ষ্ঠ শ্রেণি পর্যন্ত সাধারণ শিক্ষার পাশাপাশি নূরানী, নাযেরা ও হিফয বিভাগ চালু রয়েছে। আবাসিক ও অনাবাসিক উভয় ব্যবস্থাই বিদ্যমান।</p>
+                        <a href="#" class="nav-link btn" data-page="about">আরও জানুন</a>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://scontent.fdac202-1.fna.fbcdn.net/v/t39.30808-1/465864294_3887613201505139_5546741385621062236_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=104&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeG-_FubSCZjlZd2N90itQXc9BsHlc6WOBr0GweVzpY4GhOY0cQweW0Cg-otzLN6RroF14XH2856JL2lUP1clUEG&_nc_ohc=2ikKefmicAcQ7kNvwEF4XkB&_nc_oc=AdnV_KcRwBJvv-PPEtkxP9-MWHcdwbuQkO77txODRSwCI0Do-6qvtFx0GF2cTLfCWME&_nc_zt=24&_nc_ht=scontent.fdac202-1.fna&_nc_gid=KND5FPoL2k106EtZdFQ8Ww&oh=00_Afh2Pj153MisYar7WxJ86DOYuEkKbgq6nh7zwQW4x_mv7Q&oe=69222D2A" alt="মাদ্রাসার ছবি">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Departments Preview Section -->
+        <section class="departments">
+            <div class="container">
+                <div class="section-title">
+                    <h2>আমাদের বিভাগসমূহ</h2>
+                </div>
+                <div class="departments-grid">
+                    <div class="department-card" data-department="general">
+                        <div class="department-icon">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <h3>সাধারণ শাখা</h3>
+                        <p>প্লে থেকে ৬ষ্ঠ শ্রেণি পর্যন্ত</p>
+                    </div>
+                    <div class="department-card" data-department="noorani">
+                        <div class="department-icon">
+                            <i class="fas fa-book-quran"></i>
+                        </div>
+                        <h3>নূরানী বিভাগ</h3>
+                        <p>কুরআন শিক্ষার প্রাথমিক ধাপ</p>
+                    </div>
+                    <div class="department-card" data-department="nazera">
+                        <div class="department-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>নাযেরা বিভাগ</h3>
+                        <p>কুরআন তেলাওয়াত শেখা</p>
+                    </div>
+                    <div class="department-card" data-department="hifz">
+                        <div class="department-icon">
+                            <i class="fas fa-mosque"></i>
+                        </div>
+                        <h3>হিফয বিভাগ</h3>
+                        <p>কুরআন মুখস্থ করা</p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="#" class="nav-link btn" data-page="departments">সকল বিভাগ দেখুন</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- About Page -->
+    <div id="about" class="page">
+        <section class="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>আমাদের সম্পর্কে</h2>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>দারুল হিকমাহ মডেল মাদ্রাসা ফুলপুর, ময়মনসিংহে অবস্থিত একটি আদর্শ শিক্ষাপ্রতিষ্ঠান। আমরা আধুনিক শিক্ষার সাথে ইসলামী মূল্যবোধের সমন্বয়ে শিক্ষার্থীদের সুশিক্ষিত করে গড়ে তুলতে প্রতিশ্রুতিবদ্ধ।</p>
+                        <p>আমাদের মাদ্রাসায় প্লে থেকে ৬ষ্ঠ শ্রেণি পর্যন্ত সাধারণ শিক্ষার পাশাপাশি নূরানী, নাযেরা ও হিফয বিভাগ চালু রয়েছে। আবাসিক ও অনাবাসিক উভয় ব্যবস্থাই বিদ্যমান।</p>
+                        <p>আমাদের লক্ষ্য হল এমন একদল সুনাগরিক গড়ে তোলা যারা জ্ঞান-বিজ্ঞানে সমৃদ্ধ হওয়ার পাশাপাশি নৈতিক ও আধ্যাত্মিক মূল্যবোধে সমৃদ্ধ হবে।</p>
+                        <h3 style="margin-top: 20px;">আমাদের লক্ষ্য ও উদ্দেশ্য</h3>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>আধুনিক শিক্ষার সাথে ইসলামী শিক্ষার সমন্বয়</li>
+                            <li>নৈতিক ও আধ্যাত্মিক মূল্যবোধ সম্পন্ন শিক্ষার্থী গড়ে তোলা</li>
+                            <li>জাতীয় শিক্ষাক্রমের পাশাপাশি কুরআন-হাদীস শিক্ষা প্রদান</li>
+                            <li>সৃজনশীল ও মেধাবী শিক্ষার্থী গড়ে তোলা</li>
+                            <li>সমাজসেবায় আত্মনিয়োগ করতে সক্ষম নাগরিক তৈরি করা</li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://scontent.fdac202-1.fna.fbcdn.net/v/t39.30808-1/465864294_3887613201505139_5546741385621062236_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=104&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeG-_FubSCZjlZd2N90itQXc9BsHlc6WOBr0GweVzpY4GhOY0cQweW0Cg-otzLN6RroF14XH2856JL2lUP1clUEG&_nc_ohc=2ikKefmicAcQ7kNvwEF4XkB&_nc_oc=AdnV_KcRwBJvv-PPEtkxP9-MWHcdwbuQkO77txODRSwCI0Do-6qvtFx0GF2cTLfCWME&_nc_zt=24&_nc_ht=scontent.fdac202-1.fna&_nc_gid=KND5FPoL2k106EtZdFQ8Ww&oh=00_Afh2Pj153MisYar7WxJ86DOYuEkKbgq6nh7zwQW4x_mv7Q&oe=69222D2A" alt="মাদ্রাসার ছবি">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Departments Page -->
+    <div id="departments" class="page">
+        <section class="departments">
+            <div class="container">
+                <div class="section-title">
+                    <h2>আমাদের বিভাগসমূহ</h2>
+                </div>
+                <div class="departments-grid">
+                    <div class="department-card" data-department="general">
+                        <div class="department-icon">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <h3>সাধারণ শাখা</h3>
+                        <p>প্লে থেকে ৬ষ্ঠ শ্রেণি পর্যন্ত</p>
+                        <p style="margin-top: 10px; font-size: 0.9rem;">জাতীয় শিক্ষাক্রম অনুসারে পাঠদান</p>
+                    </div>
+                    <div class="department-card" data-department="noorani">
+                        <div class="department-icon">
+                            <i class="fas fa-book-quran"></i>
+                        </div>
+                        <h3>নূরানী বিভাগ</h3>
+                        <p>কুরআন শিক্ষার প্রাথমিক ধাপ</p>
+                        <p style="margin-top: 10px; font-size: 0.9rem;">কুরআন পড়ার মৌলিক নিয়ম শেখানো</p>
+                    </div>
+                    <div class="department-card" data-department="nazera">
+                        <div class="department-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>নাযেরা বিভাগ</h3>
+                        <p>কুরআন তেলাওয়াত শেখা</p>
+                        <p style="margin-top: 10px; font-size: 0.9rem;">সঠিক উচ্চারণে কুরআন তেলাওয়াত</p>
+                    </div>
+                    <div class="department-card" data-department="hifz">
+                        <div class="department-icon">
+                            <i class="fas fa-mosque"></i>
+                        </div>
+                        <h3>হিফয বিভাগ</h3>
+                        <p>কুরআন মুখস্থ করা</p>
+                        <p style="margin-top: 10px; font-size: 0.9rem;">সম্পূর্ণ কুরআন শরীফ মুখস্থ করানো</p>
+                    </div>
+                    <div class="department-card" data-department="hostel">
+                        <div class="department-icon">
+                            <i class="fas fa-bed"></i>
+                        </div>
+                        <h3>আবাসিক বিভাগ</h3>
+                        <p>হোস্টেল সুবিধাসহ</p>
+                        <p style="margin-top: 10px; font-size: 0.9rem;">২৪ ঘন্টা তত্ত্বাবধানে থাকার ব্যবস্থা</p>
+                    </div>
+                    <div class="department-card" data-department="non-hostel">
+                        <div class="department-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>অনাবাসিক</h3>
+                        <p>দিনের শিক্ষার্থীদের জন্য</p>
+                        <p style="margin-top: 10px; font-size: 0.9rem;">নির্দিষ্ট সময়ে ক্লাস ও বাসায় ফেরা</p>
+                    </div>
+                    <div class="department-card" data-department="daycare">
+                        <div class="department-icon">
+                            <i class="fas fa-baby"></i>
+                        </div>
+                        <h3>ডে-কেয়ার</h3>
+                        <p>ছোট শিশুদের জন্য</p>
+                        <p style="margin-top: 10px; font-size: 0.9rem;">৩-৫ বছর বয়সী শিশুদের জন্য বিশেষ ব্যবস্থা</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Admission Page -->
+    <div id="admission" class="page">
+        <section class="admission">
+            <div class="container">
+                <div class="section-title">
+                    <h2>ভর্তি তথ্য</h2>
+                </div>
+                <div class="admission-info">
+                    <h3>ভর্তি প্রক্রিয়া</h3>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h4>ভর্তি ফরম</h4>
+                            <p>ভর্তি ফরম মূল্য: ১০০ টাকা</p>
+                            <p>ভর্তি শুরু: ১ ডিসেম্বর ২০২৫</p>
+                            <p>ক্লাস শুরু: ১ জানুয়ারি ২০২৬</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>প্রয়োজনীয় কাগজপত্র</h4>
+                            <ul>
+                                <li>২ কপি পাসপোর্ট সাইজ ছবি (শিক্ষার্থী)</li>
+                                <li>জন্ম নিবন্ধন ফটোকপি</li>
+                                <li>প্রত্যয়নপত্র/ছাড়পত্র</li>
+                                <li>অভিভাবকের ১ কপি ছবি + পিতা-মাতার এনআইডি ফটোকপি</li>
+                            </ul>
+                        </div>
+                        <div class="info-card">
+                            <h4>ক্লাসের সময়সূচি</h4>
+                            <p>প্লে-নার্সারী-১ম: সকাল ৯টা – ১২টা</p>
+                            <p>২য়-৬ষ্ঠ শ্রেণি: বেলা ১২টা – ৪টা</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>ইউনিফর্ম</h4>
+                            <p><strong>ছাত্রী:</strong> লাইট বাদামি ফ্রক, সাদা স্কার্ফ ও সেলোয়ার, সাদা কে।</p>
+                            <p><strong>ছাত্র:</strong> লাইট বাদামি পাঞ্জাবী, সাদা পায়জামা ও টুপি, সাদা কে।</p>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="https://unique-paprenjak-96dc61.netlify.app/" class="btn">অনলাইনে ভর্তি ফর্ম পূরণ করুন</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Fee Page -->
+    <div id="fee" class="page">
+        <section class="fee">
+            <div class="container">
+                <div class="section-title">
+                    <h2>ফি সংক্রান্ত তথ্য</h2>
+                </div>
+                <div class="fee-tables">
+                    <div class="fee-table">
+                        <h3>অনাবাসিক সাধারণ শাখা</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>শ্রেণি</th>
+                                    <th>ভর্তি ফি</th>
+                                    <th>মাসিক বেতন</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>প্লে-নার্সারী</td>
+                                    <td>২,০০০/-</td>
+                                    <td>৭০০/-</td>
+                                </tr>
+                                <tr>
+                                    <td>১ম-২য়</td>
+                                    <td>২,০০০/-</td>
+                                    <td>৮০০/-</td>
+                                </tr>
+                                <tr>
+                                    <td>৩য়-৬ষ্ঠ</td>
+                                    <td>২,০০০/-</td>
+                                    <td>১০০০/-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="fee-table">
+                        <h3>আবাসিক সাধারণ শাখা</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>শ্রেণি</th>
+                                    <th>ভর্তি ফি</th>
+                                    <th>বেতন</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>প্লে-নার্সারী</td>
+                                    <td>২,০০০/-</td>
+                                    <td>২,০০০/-</td>
+                                </tr>
+                                <tr>
+                                    <td>১ম-২য়</td>
+                                    <td>২,০০০/-</td>
+                                    <td>২,০০০/-</td>
+                                </tr>
+                                <tr>
+                                    <td>৩য়-৬ষ্ঠ</td>
+                                    <td>২,০০০/-</td>
+                                    <td>২,০০০/-</td>
+                                </tr>
+                                <tr>
+                                    <td>ডে-কেয়ার</td>
+                                    <td>২,০০০/-</td>
+                                    <td>১,৫০০/-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="fee-table">
+                        <h3>হিফয বিভাগ</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>বিভাগ</th>
+                                    <th>ভর্তি ফি</th>
+                                    <th>বেতন</th>
+                                    <th>হোস্টেল চার্জ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>নূরানী</td>
+                                    <td>৪,০০০/-</td>
+                                    <td>২,০০০/-</td>
+                                    <td>৩,৫০০/-</td>
+                                </tr>
+                                <tr>
+                                    <td>নাযেরা</td>
+                                    <td>৪,০００/-</td>
+                                    <td>২,০০০/-</td>
+                                    <td>৩,৫০০/-</td>
+                                </tr>
+                                <tr>
+                                    <td>হিফয</td>
+                                    <td>৪,০০০/-</td>
+                                    <td>২,০০০/-</td>
+                                    <td>৩,৫০০/-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 40px;">
+                    <div class="section-title">
+                        <h3>আবাসিকদের দৈনিক খাবারের তালিকা</h3>
+                    </div>
+                    <div class="food-menu">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>বার</th>
+                                    <th>বাদ ফজর নাস্তা</th>
+                                    <th>সকালের খাবার</th>
+                                    <th>দুপুরের খাবার</th>
+                                    <th>টিফিন</th>
+                                    <th>রাতের খাবার</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>শনিবার</td>
+                                    <td>বিস্কুট/টোষ্ট</td>
+                                    <td>ভাত, ভর্তা, ডাল</td>
+                                    <td>ভাত, বড় মাছ</td>
+                                    <td>বিস্কুট/টোষ্ট</td>
+                                    <td>ভাত, ছোট মাছ, ডাল</td>
+                                </tr>
+                                <tr>
+                                    <td>রবিবার</td>
+                                    <td>বিস্কুট/টোষ্ট</td>
+                                    <td>সবজি খিচুরী</td>
+                                    <td>ভাত, বড় মাছ</td>
+                                    <td>বিস্কুট/টোষ্ট</td>
+                                    <td>ভাত, মাছ ভর্তা, ডাল</td>
+                                </tr>
+                                <tr>
+                                    <td>সোমবার</td>
+                                    <td>বিস্কুট/টোষ্ট</td>
+                                    <td>ভাত, সবজি, ডাল</td>
+                                    <td>ভাত, বড় মাছ</td>
+                                    <td>বিস্কুট/টোষ্ট</td>
+                                    <td>ভাত, সবজি, ডিম ভাজি</td>
+                                </tr>
+                                <tr>
+                                    <td>মঙ্গলবার</td>
+                                    <td>বিস্কুট/টোষ্ট</td>
+                                    <td>ভাত, ভর্তা, ডাল</td>
+                                    <td>ভাত, মুরগীর গোস্ত, ডাল</td>
+                                    <td>বিস্কুট/টোষ্ট</td>
+                                    <td>ভাত, ছোট মাছ, ডাল</td>
+                                </tr>
+                                <tr>
+                                    <td>বুধবার</td>
+                                    <td>বিস্কুট/টোষ্ট</td>
+                                    <td>সবজি খিচুরী</td>
+                                    <td>ভাত, বড় মাছ</td>
+                                    <td>বিস্কুট/টোষ্ট</td>
+                                    <td>ভাত, মাছ ভর্তা, ডাল</td>
+                                </tr>
+                                <tr>
+                                    <td>বৃহস্পতিবার</td>
+                                    <td>বিস্কুট/টোষ্ট</td>
+                                    <td>ভাত, সবজি, ডাল</td>
+                                    <td>ভাত, বড় মাছ</td>
+                                    <td>বিস্কুট/টোষ্ট</td>
+                                    <td>ভাত, সবজি, ডিম ভাজি</td>
+                                </tr>
+                                <tr>
+                                    <td>শুক্রবার</td>
+                                    <td>বিস্কুট/টোষ্ট</td>
+                                    <td>ভাত, ভর্তা, ডাল</td>
+                                    <td>ভাত, মুরগীর গোস্ত, ডাল</td>
+                                    <td>বিস্কুট/টোষ্ট</td>
+                                    <td>ভাত, ছোট মাছ, ডাল</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Facilities Page -->
+    <div id="facilities" class="page">
+        <section class="facilities">
+            <div class="container">
+                <div class="section-title">
+                    <h2>আমাদের সুবিধাসমূহ</h2>
+                </div>
+                <div class="facilities-grid">
+                    <div class="facility-card">
+                        <div class="facility-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h4>মেধাবী শিক্ষক</h4>
+                        <p>অভিজ্ঞ ও প্রশিক্ষিত শিক্ষকমণ্ডলী</p>
+                    </div>
+                    <div class="facility-card">
+                        <div class="facility-icon">
+                            <i class="fas fa-quran"></i>
+                        </div>
+                        <h4>জাতীয় মানের ক্বারী-হাফেজ</h4>
+                        <p>প্রশিক্ষিত ক্বারী দ্বারা কুরআন শিক্ষা</p>
+                    </div>
+                    <div class="facility-card">
+                        <div class="facility-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h4>আরবি-ইংরেজি কথোপকথন</h4>
+                        <p>আন্তর্জাতিক ভাষায় দক্ষতা বৃদ্ধি</p>
+                    </div>
+                    <div class="facility-card">
+                        <div class="facility-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h4>কম্পিউটার শিক্ষা</h4>
+                        <p>আধুনিক প্রযুক্তি শিক্ষা</p>
+                    </div>
+                    <div class="facility-card">
+                        <div class="facility-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h4>ড্রইং ও হাতের লেখা ক্লাস</h4>
+                        <p>সৃজনশীলতা বিকাশ</p>
+                    </div>
+                    <div class="facility-card">
+                        <div class="facility-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h4>সাপ্তাহিক সাংস্কৃতিক অনুষ্ঠান</h4>
+                        <p>সাংস্কৃতিক চর্চা ও মেধা বিকাশ</p>
+                    </div>
+                    <div class="facility-card">
+                        <div class="facility-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h4>সিসি ক্যামেরা</h4>
+                        <p>২৪ ঘন্টা নিরাপত্তা ব্যবস্থা</p>
+                    </div>
+                    <div class="facility-card">
+                        <div class="facility-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h4>বার্ষিক পুরস্কার বিতরণী</h4>
+                        <p>মেধাবীদের জন্য বিশেষ পুরস্কার</p>
+                    </div>
+                    <div class="facility-card">
+                        <div class="facility-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h4>সমৃদ্ধ লাইব্রেরি</h4>
+                        <p>বিভিন্ন বিষয়ের বইয়ের সংগ্রহ</p>
+                    </div>
+                    <div class="facility-card">
+                        <div class="facility-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h4>সায়েন্স ল্যাব</h4>
+                        <p>ব্যবহারিক শিক্ষার জন্য ল্যাব</p>
+                    </div>
+                    <div class="facility-card">
+                        <div class="facility-icon">
+                            <i class="fas fa-football-ball"></i>
+                        </div>
+                        <h4>খেলার মাঠ</h4>
+                        <p>শারীরিক বিকাশের জন্য খেলাধুলা</p>
+                    </div>
+                    <div class="facility-card">
+                        <div class="facility-icon">
+                            <i class="fas fa-bus"></i>
+                        </div>
+                        <h4>পরিবহন ব্যবস্থা</h4>
+                        <p>শিক্ষার্থীদের জন্য যানবাহন সুবিধা</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Gallery Page -->
+    <div id="gallery" class="page">
+        <section class="gallery">
+            <div class="container">
+                <div class="section-title">
+                    <h2>আমাদের গ্যালারি</h2>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://scontent.fdac202-1.fna.fbcdn.net/v/t39.30808-6/574333909_122164764218603730_6107408478536141622_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeESG00_uZksnHF-w53lgTbT5O795iZQGK_k7v3mJlAYr_IEKPoVBMLjRm-oB_AJlN7Ql4WaYFbGFofytL_b6VVS&_nc_ohc=TEW3dhMNe8MQ7kNvwE3-V-z&_nc_oc=Admams3U0PSQrEoUt8jxwSYWFsvpRcfxtnb8Ncu7Q5Jmkpu9HuypFMjsO2ghJ-y6T4Q&_nc_zt=23&_nc_ht=scontent.fdac202-1.fna&_nc_gid=JDV_cSNr3PchCZyLpdac3w&oh=00_AfiXaaIbgJalinj7D5QQbHCEIL-av_9a8lLyoVb_SrpN6w&oe=69223F0D" alt="মাদ্রাসা ভবন">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://scontent.fdac202-1.fna.fbcdn.net/v/t39.30808-6/576852352_122164765586603730_1600122270960701439_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHKN5zzbFXJqv0xlTElQR2dBjmRYxmWM2gGOZFjGZYzaO_vKmJcLEMCzes90bdpukDwRzEtNwAT9P2JGNafSbc7&_nc_ohc=p3n56-iuCa4Q7kNvwEUvPpJ&_nc_oc=Adl51RyMSslleKzNh2xs6hWVPold_6uls3urzSQ3vJ4YnPPzc7JoY_CceRCUQ55MWnQ&_nc_zt=23&_nc_ht=scontent.fdac202-1.fna&_nc_gid=esNGcowoYzs0ypMXGkiq3Q&oh=00_AfhTWEBmlMReCmmMtijH9vUrw1qBc6gLGO1-bxWTryh_rg&oe=69225C49" alt="শিক্ষার্থীরা ক্লাসে">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://scontent.fdac202-1.fna.fbcdn.net/v/t39.30808-6/529248905_122152522172603730_1843360172138035529_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHrJGP0BjW1Mx6-fGDsii91dNBAwOt1FYt00EDA63UVi-8ZwobogjIOT9LfoiHnd6kX5TJhXnbntVJ1uqeGM4r7&_nc_ohc=A08h899RH6UQ7kNvwFVur5Q&_nc_oc=AdmCSJu2O7sPsprEfnNdZzcM8ol2EZgv3FwRxAHsZJLOrq6VQRXnp_RtraaDKT8VLxo&_nc_zt=23&_nc_ht=scontent.fdac202-1.fna&_nc_gid=PaYPjGRw9Omz39YPQHb2dQ&oh=00_AficoEePmy7FLSHhdy6-pWSX-eP-NB3J37c9xpZOXSV1BA&oe=69222F92" alt="কুরআন শিক্ষা">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://scontent.fdac202-1.fna.fbcdn.net/v/t39.30808-6/529741209_122152522238603730_5012083553119785628_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFq3zTu3qrY4fur2lyVzVyVE0NrOvzsXVcTQ2s6_OxdV6EVtzp2sagV2W7-ycfcrRhNnZcTxudctB2WXLq1ej_b&_nc_ohc=N-Dc1Orb0NQQ7kNvwF3HP8u&_nc_oc=AdmnP0ZRsj8CYiioM20MU_1XdLuI0rTjx-D26eoICg5W-3cdgXv5X2Od1_flPfeb_AE&_nc_zt=23&_nc_ht=scontent.fdac202-1.fna&_nc_gid=wsHFHEXXQr-lAfEHiyCEYw&oh=00_Afjh3yD9CHRi1pYGh4gI3-YcLR-OEbLsOS5NE6-FYkIx6Q&oe=692246C1" alt="লাইব্রেরি">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://scontent.fdac202-1.fna.fbcdn.net/v/t39.30808-6/530195226_122152522274603730_2972532153330638362_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeF4eU2UctjcllBVGNUBpgLHQLVL9RgThLxAtUv1GBOEvAyK6nOxycvFkR0BbbOVD4tca4-0UCybh84_Nx_q15pd&_nc_ohc=nuqo5EZP_CAQ7kNvwGd7XWA&_nc_oc=AdkNMk9x6QmCUPvLVEhVhkOekFzpDlRjyfdBBPYY9XgdZOcPUz3tuHzbfqs3yTF_BF0&_nc_zt=23&_nc_ht=scontent.fdac202-1.fna&_nc_gid=W2ioXeC0YwOnaRee8DqXDg&oh=00_AfiKPqC9iPtDfo8BuNKsAfP_466Ha1_JVUpl4lEUhRiSTw&oe=69223062" alt="ল্যাবরেটরি">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://scontent.fdac202-1.fna.fbcdn.net/v/t39.30808-6/531140700_122152522286603730_5238070215609404256_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHQfzjg5rb2mVbeNwW8A2p1IJbfeqiDj3Uglt96qIOPdX4hKLIDl_na1BSqcHTxWi7kZg1vst-mtemrA4-prppK&_nc_ohc=yhP8LJ-Hkr4Q7kNvwGKfV9U&_nc_oc=AdmonwaqVV6hKAM9daPNez90RzkkUkgbKKSTz6wJKJahhqG5z8EFzUTTxST9od5MpkA&_nc_zt=23&_nc_ht=scontent.fdac202-1.fna&_nc_gid=v2O8uTfmxMjljDHc2IJbLQ&oh=00_AfgDY3pywcSrm3TcUegPe4qWzOinCgDS1SBGhj96Djts3A&oe=69225A63" alt="খেলার মাঠ">
+                    </div>
+					<div class="gallery-item">
+                        <img src="https://scontent.fdac202-1.fna.fbcdn.net/v/t39.30808-6/530294899_122152522340603730_4521880554189225808_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGRi8fvpEVabDPlEA7b2T9Q4ZX07Mp08PHhlfTsynTw8bwoQR-Q7DsmZGte0txh8MAxyYA1NMpmJKm81VdaddXU&_nc_ohc=bwJhYrlArBEQ7kNvwHlrtl6&_nc_oc=AdnllTdWliigiahVXbYOqsUwoyawzQ9U8tKcHWJgrG5UsgcQOOn2RIOidOVpi5nLbwg&_nc_zt=23&_nc_ht=scontent.fdac202-1.fna&_nc_gid=e2AmJbxPRGjJSGi1v6JjWA&oh=00_AfhNlnI3pvpla6njDIaYuw6HRDVry1QSOk3-ZsCekxJjLQ&oe=69225F81" alt="খেলার মাঠ">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Contact Page with EmailJS -->
+    <div id="contact" class="page">
+        <section class="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>যোগাযোগ করুন</h2>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-form">
+                        <h3>বার্তা পাঠান</h3>
+                        <form id="emailForm">
+                            <div class="form-group">
+                                <label for="user_name">আপনার নাম *</label>
+                                <input type="text" id="user_name" class="form-control" name="user_name" required>
+                                <div class="error-message" id="nameError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="user_email">ইমেইল ঠিকানা *</label>
+                                <input type="email" id="user_email" class="form-control" name="user_email" required>
+                                <div class="error-message" id="emailError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="user_phone">+880 দিয়ে ইংরেজিতে ফোন নম্বর লিখুন  *</label>
+                                <input type="tel" id="user_phone" class="form-control" name="user_phone" required>
+                                <div class="error-message" id="phoneError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="student_class">শিক্ষার্থীর শ্রেণি (যদি থাকে)</label>
+                                <select id="student_class" class="form-control" name="student_class">
+                                    <option value="">নির্বাচন করুন</option>
+                                    <option value="প্লে">প্লে</option>
+                                    <option value="নার্সারী">নার্সারী</option>
+                                    <option value="১ম শ্রেণি">১ম শ্রেণি</option>
+                                    <option value="২য় শ্রেণি">২য় শ্রেণি</option>
+                                    <option value="৩য় শ্রেণি">৩য় শ্রেণি</option>
+                                    <option value="৪র্থ শ্রেণি">৪র্থ শ্রেণি</option>
+                                    <option value="৫ম শ্রেণি">৫ম শ্রেণি</option>
+                                    <option value="৬ষ্ঠ শ্রেণি">৬ষ্ঠ শ্রেণি</option>
+                                    <option value="নূরানী">নূরানী</option>
+                                    <option value="নাযেরা">নাযেরা</option>
+                                    <option value="হিফয">হিফয</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">আপনার বার্তা *</label>
+                                <textarea id="message" class="form-control" name="message" rows="5" required placeholder="আপনার প্রশ্ন, মতামত বা ভর্তি সংক্রান্ত তথ্যের জন্য এখানে লিখুন..."></textarea>
+                                <div class="error-message" id="messageError"></div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="submitBtn">
+                                বার্তা পাঠান
+                            </button>
+                        </form>
+                    </div>
+                    <div class="contact-details">
+                        <h3>যোগাযোগের তথ্য</h3>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>ঠিকানা</h4>
+                                <p>ইসলামী ব্যাংকের বিপরীত পার্শ্বে, হালুয়াঘাট রোড, ফুলপুর, ময়মনসিংহ</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>ফোন নম্বর</h4>
+                                <p>০১৯৭০-৫১৭৫৬৬</p>
+                                <p>০১৭২৫-৭৬৬০৯২</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>ইমেইল</h4>
+                                <p>darulhikmahphulpur2025@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4>অফিস সময়</h4>
+                                <p>সকাল ৮টা - রাত ৯টা</p>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/p/%E0%A6%A6%E0%A6%BE%E0%A6%B0%E0%A7%81%E0%A6%B2-%E0%A6%B9%E0%A6%BF%E0%A6%95%E0%A6%AE%E0%A6%BE-%E0%A6%AE%E0%A6%A1%E0%A7%87%E0%A6%B2-%E0%A6%AE%E0%A6%BE%E0%A6%A6%E0%A7%8D%E0%A6%B0%E0%A6%BE%E0%A6%B8%E0%A6%BE-%E0%A6%AB%E0%A7%81%E0%A6%B2%E0%A6%BE%E0%A6%AA%E0%A7%81%E0%A6%B0-%E0%A6%AE%E0%A7%9F%E0%A6%AE%E0%A6%A8%E0%A6%B8%E0%A6%BF%E0%A6%82%E0%A6%B9-61568111920904/" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14500.307272343326!2d90.38832136977538!3d24.597799999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37564f1112e28d47%3A0x5a0a6d9c4cff138f!2sPhulpur%2C%20Mymensingh!5e0!3m2!1sen!2sbd!4v1710000000000!5m2!1sen!2sbd" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>দারুল হিকমাহ মডেল মাদ্রাসা</h3>
+                    <p>আধুনিক শিক্ষা ও ইসলামী মূল্যবোধের সমন্বয়ে গড়ে উঠেছে একটি আদর্শ শিক্ষাপ্রতিষ্ঠান। আমরা শিক্ষার্থীদের সুশিক্ষিত করে গড়ে তুলতে প্রতিশ্রুতিবদ্ধ।</p>
+                    <div class="prayer-times">
+                        <i class="fas fa-mosque mosque-icon"></i>
+                        <div class="prayer-time">ফজর ৫:১৫</div>
+                        <div class="prayer-time">যোহর ১১:৫৫</div>
+                        <div class="prayer-time">আসর ৪:২০</div>
+                        <div class="prayer-time">মাগরিব ৬:০৫</div>
+                        <div class="prayer-time">ইশা ৭:৩০</div>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>যোগাযোগ</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> ইসলামী ব্যাংকের বিপরীত পার্শ্বে, হালুয়াঘাট রোড, ফুলপুর, ময়মনসিংহ</li>
+                        <li><i class="fas fa-phone"></i> ০১৯৭০-৫১৭৫৬৬, ০১৭২৫-৭৬৬০৯২</li>
+                        <li><i class="fas fa-envelope"></i> darulhikmahphulpur2025@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; ২০২৫ দারুল হিকমাহ মডেল মাদ্রাসা, ফুলপুর, ময়মনসিংহ। সকল অধিকার সংরক্ষিত।</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="tel:01970517566" class="floating-btn call">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="https://wa.me/+8801728517544" class="floating-btn whatsapp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+    
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script>
+        // EmailJS Configuration
+        (function() {
+            emailjs.init("VTha72rpFGFAyNtFD");
+        })();
+
+        // Header Shrink Effect
+        const header = document.getElementById('mainHeader');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('shrink');
+            } else {
+                header.classList.remove('shrink');
+            }
+            
+            // Scroll to top button
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+        
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        
+        if (localStorage.getItem('darkMode') === 'enabled' || 
+            (window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem('darkMode'))) {
+            body.classList.add('dark-mode');
+            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+        
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+        
+        // Page Navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetPage = this.getAttribute('data-page');
+                
+                document.querySelectorAll('.nav-link').forEach(nav => {
+                    nav.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                document.getElementById(targetPage).classList.add('active');
+                
+                // Close mobile menu after navigation
+                navMenu.classList.remove('show');
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+        
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scrollTop');
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Department Modal
+        const departmentModal = document.getElementById('departmentModal');
+        const closeModal = document.getElementById('closeModal');
+        const modalContent = document.getElementById('modalContent');
+        
+        // Department details
+        const departmentDetails = {
+            'general': {
+                title: 'সাধারণ শাখা',
+                icon: 'fas fa-school',
+                description: 'প্লে থেকে ৬ষ্ঠ শ্রেণি পর্যন্ত জাতীয় শিক্ষাক্রম অনুসারে পাঠদান। আমাদের সাধারণ শাখায় আধুনিক ও বিজ্ঞানসম্মত শিক্ষার ব্যবস্থা রয়েছে।',
+                details: [
+                    'প্লে থেকে ৬ষ্ঠ শ্রেণি পর্যন্ত শিক্ষাদান',
+                    'জাতীয় শিক্ষাক্রম অনুসারে পাঠদান',
+                    'আধুনিক ও বিজ্ঞানসম্মত শিক্ষার ব্যবস্থা',
+                    'বাংলা, ইংরেজি, গণিত, বিজ্ঞান ও সমাজ বিজ্ঞান শিক্ষা',
+                    'সাপ্তাহিক পরীক্ষা ও মূল্যায়ন ব্যবস্থা'
+                ]
+            },
+            'noorani': {
+                title: 'নূরানী বিভাগ',
+                icon: 'fas fa-book-quran',
+                description: 'কুরআন শিক্ষার প্রাথমিক ধাপ। নূরানী পদ্ধতিতে কুরআন পড়ার মৌলিক নিয়ম শেখানো হয়।',
+                details: [
+                    'কুরআন শিক্ষার প্রাথমিক ধাপ',
+                    'নূরানী পদ্ধতিতে কুরআন পড়ার মৌলিক নিয়ম শেখানো',
+                    'আরবি হরফ ও উচ্চারণ শিক্ষা',
+                    'ছোট ছোট সুরা মুখস্থ করানো',
+                    'প্রতিদিন নির্দিষ্ট সময় কুরআন শিক্ষা'
+                ]
+            },
+            'nazera': {
+                title: 'নাযেরা বিভাগ',
+                icon: 'fas fa-book-open',
+                description: 'কুরআন তেলাওয়াত শেখা। সঠিক উচ্চারণে কুরআন তেলাওয়াত শেখানো হয় এই বিভাগে।',
+                details: [
+                    'কুরআন তেলাওয়াত শেখা',
+                    'সঠিক উচ্চারণে কুরআন তেলাওয়াত শেখানো',
+                    'তাজবিদের নিয়ম শেখানো',
+                    'কুরআন শরীফের সম্পূর্ণ নাযেরা সম্পন্ন করা',
+                    'প্রতিদিন নির্দিষ্ট পরিমাণ কুরআন তেলাওয়াত'
+                ]
+            },
+            'hifz': {
+                title: 'হিফয বিভাগ',
+                icon: 'fas fa-mosque',
+                description: 'কুরআন মুখস্থ করা। সম্পূর্ণ কুরআন শরীফ মুখস্থ করানো হয় এই বিভাগে।',
+                details: [
+                    'কুরআন মুখস্থ করা',
+                    'সম্পূর্ণ কুরআন শরীফ মুখস্থ করানো',
+                    'নিয়মিত দোড় ও পর্যালোচনা',
+                    'বিশেষ হিফয কারিকুলাম অনুসরণ',
+                    'প্রতিদিন নতুন পাঠ ও পুরানো পাঠের পুনরাবৃত্তি'
+                ]
+            },
+            'hostel': {
+                title: 'আবাসিক বিভাগ',
+                icon: 'fas fa-bed',
+                description: 'হোস্টেল সুবিধাসহ। ২৪ ঘন্টা তত্ত্বাবধানে থাকার ব্যবস্থা।',
+                details: [
+                    'হোস্টেল সুবিধাসহ আবাসিক ব্যবস্থা',
+                    '২৪ ঘন্টা তত্ত্বাবধানে থাকার ব্যবস্থা',
+                    'নিয়মিত পড়ালেখার সময়সূচী',
+                    'সুবিধামত খাবার ও বিশ্রামের ব্যবস্থা',
+                    'নিরাপত্তা ও স্বাস্থ্যকর পরিবেশ'
+                ]
+            },
+            'non-hostel': {
+                title: 'অনাবাসিক',
+                icon: 'fas fa-home',
+                description: 'দিনের শিক্ষার্থীদের জন্য। নির্দিষ্ট সময়ে ক্লাস ও বাসায় ফেরা।',
+                details: [
+                    'দিনের শিক্ষার্থীদের জন্য',
+                    'নির্দিষ্ট সময়ে ক্লাস ও বাসায় ফেরা',
+                    'সকাল ও দুপুরের শিফট ব্যবস্থা',
+                    'বাসা থেকে টিফিন আনার সুযোগ',
+                    'নিয়মিত উপস্থিতি মনিটরিং'
+                ]
+            },
+            'daycare': {
+                title: 'ডে-কেয়ার',
+                icon: 'fas fa-baby',
+                description: 'ছোট শিশুদের জন্য। ৩-৫ বছর বয়সী শিশুদের জন্য বিশেষ ব্যবস্থা।',
+                details: [
+                    'ছোট শিশুদের জন্য বিশেষ ব্যবস্থা',
+                    '৩-৫ বছর বয়সী শিশুদের জন্য',
+                    'খেলাধুলার মাধ্যমে শিক্ষাদান',
+                    'নিরাপদ ও আনন্দদায়ক পরিবেশ',
+                    'অভিজ্ঞ শিক্ষিকা দ্বারা তত্ত্বাবধান'
+                ]
+            }
+        };
+        
+        // Department card click event
+        document.querySelectorAll('.department-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const department = this.getAttribute('data-department');
+                const details = departmentDetails[department];
+                
+                if (details) {
+                    let content = `
+                        <div class="department-modal-header" style="text-align: center; margin-bottom: 20px;">
+                            <div class="department-icon" style="font-size: 3rem; color: var(--primary); margin-bottom: 15px;">
+                                <i class="${details.icon}"></i>
+                            </div>
+                            <h2 style="color: var(--primary); margin-bottom: 10px;">${details.title}</h2>
+                            <p style="font-size: 1.1rem; margin-bottom: 20px;">${details.description}</p>
+                        </div>
+                        <div class="department-details">
+                            <h3 style="margin-bottom: 15px; color: var(--primary);">বিস্তারিত তথ্য:</h3>
+                            <ul style="margin-left: 20px;">
+                    `;
+                    
+                    details.details.forEach(item => {
+                        content += `<li style="margin-bottom: 10px;">${item}</li>`;
+                    });
+                    
+                    content += `
+                            </ul>
+                        </div>
+                        <div style="text-align: center; margin-top: 30px;">
+                            <a href="#" class="nav-link btn" data-page="admission">এই বিভাগে ভর্তি হোন</a>
+                        </div>
+                    `;
+                    
+                    modalContent.innerHTML = content;
+                    departmentModal.classList.add('active');
+                    
+                    // Add event listeners to nav links inside modal
+                    modalContent.querySelectorAll('.nav-link').forEach(link => {
+                        link.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            departmentModal.classList.remove('active');
+                            const targetPage = this.getAttribute('data-page');
+                            
+                            document.querySelectorAll('.nav-link').forEach(nav => {
+                                nav.classList.remove('active');
+                            });
+                            document.querySelector(`[data-page="${targetPage}"]`).classList.add('active');
+                            
+                            document.querySelectorAll('.page').forEach(page => {
+                                page.classList.remove('active');
+                            });
+                            document.getElementById(targetPage).classList.add('active');
+                            
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        });
+                    });
+                }
+            });
+        });
+        
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            departmentModal.classList.remove('active');
+        });
+        
+        // Close modal when clicking outside
+        departmentModal.addEventListener('click', (e) => {
+            if (e.target === departmentModal) {
+                departmentModal.classList.remove('active');
+            }
+        });
+        
+        // Form Validation
+        function validateForm(form) {
+            let isValid = true;
+            const name = form.querySelector('#user_name');
+            const email = form.querySelector('#user_email');
+            const phone = form.querySelector('#user_phone');
+            const message = form.querySelector('#message');
+            
+            // Name validation
+            if (!name.value.trim()) {
+                showError(name, 'নাম অবশ্যই প্রদান করতে হবে', 'nameError');
+                isValid = false;
+            } else {
+                hideError('nameError');
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email.value.trim()) {
+                showError(email, 'ইমেইল অবশ্যই প্রদান করতে হবে', 'emailError');
+                isValid = false;
+            } else if (!emailRegex.test(email.value)) {
+                showError(email, 'সঠিক ইমেইল ঠিকানা প্রদান করুন', 'emailError');
+                isValid = false;
+            } else {
+                hideError('emailError');
+            }
+            
+            // Phone validation
+            const phoneRegex = /^\+8801[3-9]\d{8}$/;
+            if (!phone.value.trim()) {
+                showError(phone, 'ফোন নম্বর অবশ্যই প্রদান করতে হবে', 'phoneError');
+                isValid = false;
+            } else if (!phoneRegex.test(phone.value)) {
+                showError(phone, 'সঠিক ফোন নম্বর প্রদান করুন (+880 দিয়ে শুরু করে)', 'phoneError');
+                isValid = false;
+            } else {
+                hideError('phoneError');
+            }
+            
+            // Message validation
+            if (!message.value.trim()) {
+                showError(message, 'বার্তা অবশ্যই প্রদান করতে হবে', 'messageError');
+                isValid = false;
+            } else {
+                hideError('messageError');
+            }
+            
+            return isValid;
+        }
+        
+        function showError(field, message, errorId) {
+            field.classList.add('error');
+            const errorElement = document.getElementById(errorId);
+            errorElement.textContent = message;
+            errorElement.classList.add('show');
+        }
+        
+        function hideError(errorId) {
+            const errorElement = document.getElementById(errorId);
+            errorElement.classList.remove('show');
+        }
+        
+        // EmailJS Form Submission
+        document.getElementById('emailForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!validateForm(this)) {
+                return;
+            }
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<span class="spinner"></span> পাঠানো হচ্ছে...';
+            submitBtn.disabled = true;
+            
+            // Send email using EmailJS
+            emailjs.sendForm('service_38bq48h', 'template_8s7ua1q', this)
+                .then(function(response) {
+                    showNotification('আপনার বার্তা সফলভাবে পাঠানো হয়েছে! আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।', 'success');
+                    document.getElementById('emailForm').reset();
+                }, function(error) {
+                    showNotification('দুঃখিত, বার্তা পাঠানো যায়নি। অনুগ্রহ করে সরাসরি ফোন করুন।', 'error');
+                })
+                .finally(function() {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
+        });
+        
+        // Notification Function
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notificationText');
+            
+            notificationText.textContent = message;
+            notification.style.background = type === 'success' ? 'var(--primary)' : '#d32f2f';
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
