@@ -58,18 +58,16 @@
   <h1>PDF Viewer</h1>
   
   <div id="pdf-container">
-    <iframe id="pdf-frame" src="pdf.pdf"></iframe>
+    <!-- toolbar=0 ব্যবহার করা হলো যাতে কোনো control না দেখায় -->
+    <iframe id="pdf-frame" src="pdf.pdf#toolbar=0"></iframe>
   </div>
 
   <a class="download-btn" href="pdf.pdf" download="pdf.pdf">Download PDF</a>
 
   <script>
-    // এখানে JS দিয়ে আরো customization করতে পারো
     const pdfFrame = document.getElementById('pdf-frame');
-
-    // উদাহরণ: PDF লোড হলে console log করবে
     pdfFrame.onload = () => {
-      console.log('PDF লোড হয়েছে');
+      console.log('PDF লোড হয়েছে (toolbar hidden)');
     };
   </script>
 
